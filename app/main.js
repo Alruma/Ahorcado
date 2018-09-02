@@ -48,7 +48,7 @@ letras.addEventListener("keyup", function (event) {
             lvidas -= 1;
             vidas.innerText = lvidas + "";
             if (lvidas <= 0) {
-                alert("Unlucky busta, ha muerto");
+                victoria.innerHTML = "Unlucky busta, ha muerto.";
             }
         }
         if (palabrafinal.join("") == randomElement) {
