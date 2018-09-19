@@ -12,11 +12,10 @@ let lvidas = parseInt(vidas.innerText);
 let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
-
-
+const mascara = "-";
 
 for(let i = 0; i < randomElement.length ; i++){
-    oculta.innerText = oculta.innerText + "_";
+    oculta.innerText = oculta.innerText + mascara;
 }
 let arrayoculto = oculta.innerText.split("");
 let palabrafinal = arrayoculto;
@@ -31,11 +30,12 @@ boton.addEventListener("click", function () {
     oculta.innerText = "";
     console.log(randomElement);
     for(let i = 0; i < randomElement.length ; i++){
-        oculta.innerText = oculta.innerText + "_";
+        oculta.innerText = oculta.innerText + mascara;
     }
     arrayoculto = oculta.innerText.split("");
     palabrafinal = arrayoculto;
     victoria.innerHTML = "";
+    letras.disabled = false;    
 })
 
 
@@ -56,6 +56,7 @@ letras.addEventListener("keyup", function (event) {
             vidas.innerText = lvidas + "";
             if (lvidas <= 0) {
                 victoria.innerHTML = "Unlucky busta, ha muerto.";
+                letras.disabled = true;
             }
         }
         if(palabrafinal.join("") == randomElement){
