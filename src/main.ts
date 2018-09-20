@@ -34,7 +34,9 @@ boton.addEventListener("click", function () {
     arrayoculto = oculta.innerText.split("");
     palabrafinal = arrayoculto;
     victoria.innerHTML = "";
-    letras.disabled = false;    
+    letras.disabled = false;
+    letras.value = "";
+
 })
 
 

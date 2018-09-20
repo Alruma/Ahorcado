@@ -33,6 +33,7 @@ boton.addEventListener("click", function () {
     palabrafinal = arrayoculto;
     victoria.innerHTML = "";
     letras.disabled = false;
+    letras.value = "";
 });
 letras.addEventListener("keyup", function (event) {
     let any = false;
