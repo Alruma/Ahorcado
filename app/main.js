@@ -56,6 +56,7 @@ letras.addEventListener("keyup", function (event) {
         }
         if (palabrafinal.join("") == randomElement) {
             victoria.innerHTML = "Has ganado y el notas no ha muerto, que no es poco. Pulsa Empezar para otra partida.";
+            letras.disabled = true;
         }
         letras.value = "";
     }
