@@ -28,7 +28,6 @@ boton.addEventListener("click", function () {
     fallos.innerHTML = "";
     lvidas = 5;
     oculta.innerText = "";
-    console.log(randomElement);
     for(let i = 0; i < randomElement.length ; i++){
         oculta.innerText = oculta.innerText + mascara;
     }
@@ -41,7 +40,7 @@ boton.addEventListener("click", function () {
 
 
 letras.addEventListener("keyup", function (event) {
-    let any = false;
+    let any : boolean = false;
     if (event.key === "Enter"  && letras.value != "") {
         for (let i = 0; i < randomElement.length; i++) {
             if (letras.value == randomElement[i]) {
