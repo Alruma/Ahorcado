@@ -45,7 +45,7 @@ letras.addEventListener("keyup", function (event) {
     let any : boolean = false;
     if (event.key === "Enter"  && letras.value != "") {
         for (let i = 0; i < randomElement.length; i++) {
-            if (letras.value == randomElement[i]) {
+            if (letras.value.toLowerCase() == randomElement[i]) {
                 any = true;
                 palabrafinal[i] = randomElement[i];
                 oculta.innerText = palabrafinal.join("");
