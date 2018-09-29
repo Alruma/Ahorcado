@@ -43,7 +43,7 @@ letras.addEventListener("keyup", function (event) {
         for (let i = 0; i < randomElement.length; i++) {
             if (letras.value.toLowerCase() == palabra[i]) {
                 any = true;
-                palabrafinal[i] = palabra[i];
+                palabrafinal[i] = randomElement[i];
                 oculta.innerText = palabrafinal.join("");
             }
         }
