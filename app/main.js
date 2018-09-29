@@ -6,13 +6,15 @@ const boton = document.getElementById("boton");
 let fallos = document.getElementById("fallos");
 let vidas = document.getElementById("vidas");
 let oculta = document.getElementById("oculta");
-let todas = ["divan", "sonajero", "ayudar", "arqueologia", "peligro", "colina", "extractor", "espagueti", "polo", "burbuja", "crema", "cafe", "estrella", "explosion", "guitarra", "plastico", "navaja", "martillo", "libros", "lapiz", "lapicera", "aluminio", "embarcacion", "letra", "agujeta", "ventana", "libreria", "sonido", "universidad", "rueda", "perro", "llaves", "camisa", "pelo", "papa", "sillon", "felicidad", "catre", "teclado", "servilleta", "escuela", "pantalla", "sol", "codo", "tenedor", "estadistica", "mapa", "agua", "mensaje", "lima", "cohete", "rey", "edificio", "cesped", "presidencia", "hojas", "parlante", "colegio", "granizo", "pestaña", "lampara", "mano", "monitor", "flor", "musica", "hombre", "tornillo", "habitacion", "velero", "abuela", "abuelo", "palo", "satelite", "templo", "lentes", "boligrafo", "plato", "nube", "gobierno", "botella", "castillo", "enano", "casa", "libro", "persona", "planeta", "televisor", "guantes", "metal", "telefono", "proyector", "mono", "remera", "muela", "petroleo", "percha", "remate", "debate", "anillo", "cuaderno", "ruido", "pared", "taladro", "herramienta", "cartas", "chocolate", "anteojos", "impresora", "caramelos", "living", "luces", "angustia", "zapato", "bomba", "lluvia", "ojo", "corbata", "periodico", "diente", "planta", "chupetin", "buzo", "oficina", "persiana", "puerta", "tio", "silla", "ensalada", "pradera", "zoologico", "candidato", "deporte", "recipiente", "diarios", "fotografia", "ave", "hierro", "refugio", "pantalon", "barco", "carne", "nieve", "tecla", "humedad", "pistola", "departamento", "celular", "tristeza", "hipopotamo", "sofa", "cama", "arbol", "mesada", "campera", "discurso", "auto", "cinturon", "rucula", "famoso", "madera", "lentejas", "piso", "maletin", "reloj", "diputado", "cuchillo", "desodorante", "candado", "luz", "montañas", "computadora", "radio", "moño", "cuadro", "calor", "partido", "teatro", "bife", "fiesta", "bala", "auriculares"];
+let toas = ["divan", "sonajero", "ayudar", "arqueologia", "peligro", "colina", "extractor", "espagueti", "polo", "burbuja", "crema", "cafe", "estrella", "explosion", "guitarra", "plastico", "navaja", "martillo", "libros", "lapiz", "lapicera", "aluminio", "embarcacion", "letra", "agujeta", "ventana", "libreria", "sonido", "universidad", "rueda", "perro", "llaves", "camisa", "pelo", "papa", "sillon", "felicidad", "catre", "teclado", "servilleta", "escuela", "pantalla", "sol", "codo", "tenedor", "estadistica", "mapa", "agua", "mensaje", "lima", "cohete", "rey", "edificio", "cesped", "presidencia", "hojas", "parlante", "colegio", "granizo", "pestaña", "lampara", "mano", "monitor", "flor", "musica", "hombre", "tornillo", "habitacion", "velero", "abuela", "abuelo", "palo", "satelite", "templo", "lentes", "boligrafo", "plato", "nube", "gobierno", "botella", "castillo", "enano", "casa", "libro", "persona", "planeta", "televisor", "guantes", "metal", "telefono", "proyector", "mono", "remera", "muela", "petroleo", "percha", "remate", "debate", "anillo", "cuaderno", "ruido", "pared", "taladro", "herramienta", "cartas", "chocolate", "anteojos", "impresora", "caramelos", "living", "luces", "angustia", "zapato", "bomba", "lluvia", "ojo", "corbata", "periodico", "diente", "planta", "chupetin", "buzo", "oficina", "persiana", "puerta", "tio", "silla", "ensalada", "pradera", "zoologico", "candidato", "deporte", "recipiente", "diarios", "fotografia", "ave", "hierro", "refugio", "pantalon", "barco", "carne", "nieve", "tecla", "humedad", "pistola", "departamento", "celular", "tristeza", "hipopotamo", "sofa", "cama", "arbol", "mesada", "campera", "discurso", "auto", "cinturon", "rucula", "famoso", "madera", "lentejas", "piso", "maletin", "reloj", "diputado", "cuchillo", "desodorante", "candado", "luz", "montañas", "computadora", "radio", "moño", "cuadro", "calor", "partido", "teatro", "bife", "fiesta", "bala", "auriculares"];
+let todas = ["óoooósdfsafd"];
 let randomIndex = Math.floor(Math.random() * todas.length);
 let randomElement = todas[randomIndex];
 let lvidas = parseInt(vidas.innerText);
 let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
+let palabra = normalizar(randomElement);
 const mascara = "-";
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
@@ -39,9 +41,9 @@ letras.addEventListener("keyup", function (event) {
     let any = false;
     if (event.key === "Enter" && letras.value != "") {
         for (let i = 0; i < randomElement.length; i++) {
-            if (letras.value.toLowerCase() == randomElement[i]) {
+            if (letras.value.toLowerCase() == palabra[i]) {
                 any = true;
-                palabrafinal[i] = randomElement[i];
+                palabrafinal[i] = palabra[i];
                 oculta.innerText = palabrafinal.join("");
             }
         }
@@ -52,7 +54,7 @@ letras.addEventListener("keyup", function (event) {
             if (lvidas <= 0) {
                 victoria.innerHTML = "Unlucky busta, ha muerto.";
                 letras.disabled = true;
-                oculta.innerText = randomElement;
+                oculta.innerText = palabra.join();
             }
         }
         if (palabrafinal.join("") == randomElement) {
@@ -62,4 +64,26 @@ letras.addEventListener("keyup", function (event) {
         letras.value = "";
     }
 });
+function normalizar(p) {
+    let palabranormal = [];
+    palabranormal = p.split("");
+    for (let i = 0; i < p.length; i++) {
+        if (p[i] == "á") {
+            palabranormal[i] = "a";
+        }
+        if (p[i] == "é") {
+            palabranormal[i] = "e";
+        }
+        if (p[i] == "í") {
+            palabranormal[i] = "i";
+        }
+        if (p[i] == "ó") {
+            palabranormal[i] = "o";
+        }
+        if (p[i] == "ú") {
+            palabranormal[i] = "u";
+        }
+    }
+    return palabranormal;
+}
 //# sourceMappingURL=main.js.map
