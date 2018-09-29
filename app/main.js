@@ -37,9 +37,6 @@ boton.addEventListener("click", function () {
     letras.value = "";
 });
 letras.addEventListener("keyup", function (event) {
-    if (letras.value != typeof ("string")) {
-        alert("Rodrigo hijo puta");
-    }
     let any = false;
     if (event.key === "Enter" && letras.value != "") {
         for (let i = 0; i < randomElement.length; i++) {
@@ -66,8 +63,6 @@ letras.addEventListener("keyup", function (event) {
         letras.value = "";
     }
 });
-function letranormal(p) {
-}
 function normalizar(p) {
     let palabranormal = [];
     palabranormal = p.split("");
