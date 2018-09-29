@@ -54,7 +54,7 @@ letras.addEventListener("keyup", function (event) {
             if (lvidas <= 0) {
                 victoria.innerHTML = "Unlucky busta, ha muerto.";
                 letras.disabled = true;
-                oculta.innerText = palabra.join();
+                oculta.innerText = randomElement;
             }
         }
         if (palabrafinal.join("") == randomElement) {
