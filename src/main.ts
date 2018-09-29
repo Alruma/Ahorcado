@@ -6,7 +6,7 @@ let fallos = document.getElementById("fallos") as HTMLLabelElement;
 let vidas = document.getElementById("vidas") as HTMLLabelElement;
 let oculta = document.getElementById("oculta") as HTMLLabelElement;
 let toas = ["divan", "sonajero", "ayudar", "arqueologia", "peligro", "colina", "extractor", "espagueti", "polo", "burbuja","crema","cafe","estrella","explosion","guitarra","plastico","navaja","martillo","libros","lapiz","lapicera","aluminio","embarcacion","letra","agujeta","ventana","libreria","sonido","universidad","rueda","perro","llaves","camisa","pelo","papa","sillon","felicidad","catre","teclado","servilleta","escuela","pantalla","sol","codo","tenedor","estadistica","mapa","agua","mensaje","lima","cohete","rey","edificio","cesped","presidencia","hojas","parlante","colegio","granizo","pestaña","lampara","mano","monitor","flor","musica","hombre","tornillo","habitacion","velero","abuela","abuelo","palo","satelite","templo","lentes","boligrafo","plato","nube","gobierno","botella","castillo","enano","casa","libro","persona","planeta","televisor","guantes","metal","telefono","proyector","mono","remera","muela","petroleo","percha","remate","debate","anillo","cuaderno","ruido","pared","taladro","herramienta","cartas","chocolate","anteojos","impresora","caramelos","living","luces","angustia","zapato","bomba","lluvia","ojo","corbata","periodico","diente","planta","chupetin","buzo","oficina","persiana","puerta","tio","silla","ensalada","pradera","zoologico","candidato","deporte","recipiente","diarios","fotografia","ave","hierro","refugio","pantalon","barco","carne","nieve","tecla","humedad","pistola","departamento","celular","tristeza","hipopotamo","sofa","cama","arbol","mesada","campera","discurso","auto","cinturon","rucula","famoso","madera","lentejas","piso","maletin","reloj","diputado","cuchillo","desodorante","candado","luz","montañas","computadora","radio","moño","cuadro","calor","partido","teatro","bife","fiesta","bala","auriculares"];
-let todas = ["óoooósdfsafd"]
+let todas = ["óóóóóósdfsafd"]
 let randomIndex = Math.floor(Math.random() * todas.length);
 let randomElement = todas[randomIndex];
 let lvidas = parseInt(vidas.innerText);
@@ -68,7 +68,7 @@ letras.addEventListener("keyup", function (event) {
     }
 });
 
-
+ 
 function normalizar(p:string){
     let palabranormal = [];
     palabranormal = p.split("");
