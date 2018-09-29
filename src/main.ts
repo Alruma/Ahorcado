@@ -37,6 +37,7 @@ boton.addEventListener("click", function () {
     victoria.innerHTML = "";
     letras.disabled = false;
     letras.value = "";
+    palabra = normalizar(randomElement);
 })
 
 letras.addEventListener("keyup", function (event) {
