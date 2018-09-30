@@ -47,7 +47,7 @@ function normalizar(p: string) {
 }
 
 function isLetter(str: string) {
-    if(str == "ñ"){
+    if(str == "ñ" || str == "Ñ"){
         return true;
     }
     return str.length === 1 && /[a-z]/i.test(str);
