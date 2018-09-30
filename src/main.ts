@@ -14,6 +14,8 @@ let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
+let letranormal = normalizaracentos(letras.value);
+
 
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
@@ -45,6 +47,9 @@ function normalizar(p: string) {
 }
 
 function isLetter(str: string) {
+    if(str == "ñ"){
+        return true;
+    }
     return str.length === 1 && /[a-z]/i.test(str);
 }
 
@@ -100,4 +105,23 @@ letras.addEventListener("keyup", function (event) {
     }
 });
 
+
+function normalizaracentos(p:string){
+    if (p.toLowerCase() == "á") {
+        p = "a";
+    }
+    if (p.toLowerCase()== "é") {
+        p = "e";
+    }
+    if (p.toLowerCase() == "í") {
+        p = "i";
+    }
+    if (p.toLowerCase() == "ó") {
+        p = "o";
+    }
+    if (p.toLowerCase() == "ú") {
+        p = "u";
+    }
+    return p;
+}
 
