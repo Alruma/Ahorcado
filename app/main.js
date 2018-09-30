@@ -21,6 +21,31 @@ for (let i = 0; i < randomElement.length; i++) {
 }
 let arrayoculto = oculta.innerText.split("");
 let palabrafinal = arrayoculto;
+function normalizar(p) {
+    let palabranormal = [];
+    palabranormal = p.split("");
+    for (let i = 0; i < p.length; i++) {
+        if (p[i] == "á") {
+            palabranormal[i] = "a";
+        }
+        if (p[i] == "é") {
+            palabranormal[i] = "e";
+        }
+        if (p[i] == "í") {
+            palabranormal[i] = "i";
+        }
+        if (p[i] == "ó") {
+            palabranormal[i] = "o";
+        }
+        if (p[i] == "ú") {
+            palabranormal[i] = "u";
+        }
+    }
+    return palabranormal;
+}
+function isLetter(str) {
+    return str.length === 1 && str.match(/[a-z]/i);
+}
 boton.addEventListener("click", function () {
     randomIndex = Math.floor(Math.random() * todas.length);
     randomElement = todas[randomIndex];
@@ -70,29 +95,4 @@ letras.addEventListener("keyup", function (event) {
         }
     }
 });
-function normalizar(p) {
-    let palabranormal = [];
-    palabranormal = p.split("");
-    for (let i = 0; i < p.length; i++) {
-        if (p[i] == "á") {
-            palabranormal[i] = "a";
-        }
-        if (p[i] == "é") {
-            palabranormal[i] = "e";
-        }
-        if (p[i] == "í") {
-            palabranormal[i] = "i";
-        }
-        if (p[i] == "ó") {
-            palabranormal[i] = "o";
-        }
-        if (p[i] == "ú") {
-            palabranormal[i] = "u";
-        }
-    }
-    return palabranormal;
-}
-function isLetter(str) {
-    return str.length === 1 && str.match(/[a-z]/i);
-}
 //# sourceMappingURL=main.js.map
