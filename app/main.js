@@ -14,6 +14,7 @@ let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
+let letra = isLetter(letras.value);
 const mascara = "-";
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
@@ -40,28 +41,33 @@ boton.addEventListener("click", function () {
 letras.addEventListener("keyup", function (event) {
     let any = false;
     if (event.key === "Enter" && letras.value != "") {
-        for (let i = 0; i < randomElement.length; i++) {
-            if (letras.value.toLowerCase() == palabra[i]) {
-                any = true;
-                palabrafinal[i] = randomElement[i];
-                oculta.innerText = palabrafinal.join("");
+        if (letra === true) {
+            for (let i = 0; i < randomElement.length; i++) {
+                if (letras.value.toLowerCase() == palabra[i]) {
+                    any = true;
+                    palabrafinal[i] = randomElement[i];
+                    oculta.innerText = palabrafinal.join("");
+                }
             }
-        }
-        if (any == false) {
-            fallos.innerHTML = fallos.innerHTML + fail + letras.value + ", ";
-            lvidas -= 1;
-            vidas.innerText = lvidas + "";
-            if (lvidas <= 0) {
-                victoria.innerHTML = "Unlucky busta, ha muerto.";
+            if (any == false) {
+                fallos.innerHTML = fallos.innerHTML + fail + letras.value + ", ";
+                lvidas -= 1;
+                vidas.innerText = lvidas + "";
+                if (lvidas <= 0) {
+                    victoria.innerHTML = "Unlucky busta, ha muerto.";
+                    letras.disabled = true;
+                    oculta.innerText = randomElement;
+                }
+            }
+            if (palabrafinal.join("") == randomElement) {
+                victoria.innerHTML = "Has ganado y el notas no ha muerto, que no es poco. Pulsa Empezar para otra partida.";
                 letras.disabled = true;
-                oculta.innerText = randomElement;
             }
+            letras.value = "";
         }
-        if (palabrafinal.join("") == randomElement) {
-            victoria.innerHTML = "Has ganado y el notas no ha muerto, que no es poco. Pulsa Empezar para otra partida.";
-            letras.disabled = true;
+        else {
+            alert(letra);
         }
-        letras.value = "";
     }
 });
 function normalizar(p) {
@@ -85,5 +91,8 @@ function normalizar(p) {
         }
     }
     return palabranormal;
+}
+function isLetter(str) {
+    return str.length === 1 && str.match(/[a-z]/i);
 }
 //# sourceMappingURL=main.js.map
