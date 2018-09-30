@@ -7,7 +7,8 @@ const mascara = "-";
 let fallos = document.getElementById("fallos");
 let vidas = document.getElementById("vidas");
 let oculta = document.getElementById("oculta");
-let todas = ["diván", "sonajero", "ayudar", "arqueología", "peligro", "colina", "extractor", "espagueti", "polo", "burbuja", "crema", "café", "estrella", "explosión", "guitarra", "plástico", "navaja", "martillo", "libros", "lápiz", "lapicero", "aluminio", "embarcación", "letra", "agujeta", "ventana", "Liberia", "sonido", "universidad", "rueda", "perro", "llaves", "camisa", "pelo", "papa", "sillón", "felicidad", "catre", "teclado", "servilleta", "escuela", "pantalla", "sol", "codo", "tenedor", "estadística", "mapa", "agua", "mensaje", "lima", "cohete", "rey", "edificio", "césped", "presidencia", "hojas", "parlante", "colegio", "granizo", "pestaña", "lampara", "mano", "monitor", "flor", "música", "hombre", "tornillo", "habitación", "velero", "abuela", "abuelo", "palo", "satélite", "templo", "lentes", "bolígrafo", "plato", "nube", "gobierno", "botella", "castillo", "enano", "casa", "libro", "persona", "planeta", "televisor", "guantes", "metal", "teléfono", "proyector", "mono", "remera", "muela", "petróleo", "percha", "remate", "debate", "anillo", "cuaderno", "ruido", "pared", "taladro", "herramienta", "cartas", "chocolate", "anteojos", "impresora", "caramelos", "luces", "angustia", "zapato", "bomba", "lluvia", "ojo", "corbata", "periódico", "diente", "planta", "chupete", "buzo", "oficina", "persiana", "puerta", "tío", "silla", "ensalada", "pradera", "zoológico", "candidato", "deporte", "recipiente", "diarios", "fotografía", "ave", "hierro", "refugio", "pantalón", "barco", "carne", "nieve", "tecla", "humedad", "pistola", "departamento", "celular", "tristeza", "hipopótamo", "sofá", "cama", "árbol", "mesada", "campera", "discurso", "auto", "cinturón", "rúcula", "famoso", "madera", "lentejas", "piso", "maletín", "reloj", "diputado", "cuchillo", "desodorante", "candado", "luz", "montañas", "computadora", "radio", "moño", "cuadro", "calor", "partido", "teatro", "fiesta", "bala", "auriculares"];
+let tdas = ["diván", "sonajero", "ayudar", "arqueología", "peligro", "colina", "extractor", "espagueti", "polo", "burbuja", "crema", "café", "estrella", "explosión", "guitarra", "plástico", "navaja", "martillo", "libros", "lápiz", "lapicero", "aluminio", "embarcación", "letra", "agujeta", "ventana", "Liberia", "sonido", "universidad", "rueda", "perro", "llaves", "camisa", "pelo", "papa", "sillón", "felicidad", "catre", "teclado", "servilleta", "escuela", "pantalla", "sol", "codo", "tenedor", "estadística", "mapa", "agua", "mensaje", "lima", "cohete", "rey", "edificio", "césped", "presidencia", "hojas", "parlante", "colegio", "granizo", "pestaña", "lampara", "mano", "monitor", "flor", "música", "hombre", "tornillo", "habitación", "velero", "abuela", "abuelo", "palo", "satélite", "templo", "lentes", "bolígrafo", "plato", "nube", "gobierno", "botella", "castillo", "enano", "casa", "libro", "persona", "planeta", "televisor", "guantes", "metal", "teléfono", "proyector", "mono", "remera", "muela", "petróleo", "percha", "remate", "debate", "anillo", "cuaderno", "ruido", "pared", "taladro", "herramienta", "cartas", "chocolate", "anteojos", "impresora", "caramelos", "luces", "angustia", "zapato", "bomba", "lluvia", "ojo", "corbata", "periódico", "diente", "planta", "chupete", "buzo", "oficina", "persiana", "puerta", "tío", "silla", "ensalada", "pradera", "zoológico", "candidato", "deporte", "recipiente", "diarios", "fotografía", "ave", "hierro", "refugio", "pantalón", "barco", "carne", "nieve", "tecla", "humedad", "pistola", "departamento", "celular", "tristeza", "hipopótamo", "sofá", "cama", "árbol", "mesada", "campera", "discurso", "auto", "cinturón", "rúcula", "famoso", "madera", "lentejas", "piso", "maletín", "reloj", "diputado", "cuchillo", "desodorante", "candado", "luz", "montañas", "computadora", "radio", "moño", "cuadro", "calor", "partido", "teatro", "fiesta", "bala", "auriculares"];
+let todas = ["áááááééééiííiííóóoooóó"];
 let randomIndex = Math.floor(Math.random() * todas.length);
 let randomElement = todas[randomIndex];
 let lvidas = parseInt(vidas.innerText);
@@ -66,9 +67,9 @@ boton.addEventListener("click", function () {
 letras.addEventListener("keyup", function (event) {
     let any = false;
     if (event.key === "Enter" && letras.value != "") {
-        if (isLetter(letras.value) === true) {
+        if (isLetter(normalizaracentos(letras.value)) === true) {
             for (let i = 0; i < randomElement.length; i++) {
-                if (letras.value.toLowerCase() == palabra[i]) {
+                if (normalizaracentos(letras.value.toLowerCase()) == palabra[i]) {
                     any = true;
                     palabrafinal[i] = randomElement[i];
                     oculta.innerText = palabrafinal.join("");
@@ -97,19 +98,19 @@ letras.addEventListener("keyup", function (event) {
     }
 });
 function normalizaracentos(p) {
-    if (p.toLowerCase() == "á") {
+    if (p.toLowerCase() == "á" || p.toLowerCase() == "à" || p.toLowerCase() == "â" || p.toLowerCase() == "ä") {
         p = "a";
     }
-    if (p.toLowerCase() == "é") {
+    if (p.toLowerCase() == "é" || p.toLowerCase() == "è" || p.toLowerCase() == "ê" || p.toLowerCase() == "ë") {
         p = "e";
     }
-    if (p.toLowerCase() == "í") {
+    if (p.toLowerCase() == "í" || p.toLowerCase() == "ì" || p.toLowerCase() == "î" || p.toLowerCase() == "ï") {
         p = "i";
     }
-    if (p.toLowerCase() == "ó") {
+    if (p.toLowerCase() == "ó" || p.toLowerCase() == "ò" || p.toLowerCase() == "ô" || p.toLowerCase() == "ö") {
         p = "o";
     }
-    if (p.toLowerCase() == "ú") {
+    if (p.toLowerCase() == "ú" || p.toLowerCase() == "ù" || p.toLowerCase() == "û" || p.toLowerCase() == "ü") {
         p = "u";
     }
     return p;
