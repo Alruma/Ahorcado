@@ -3,6 +3,7 @@ const victoria = document.getElementById("victoria");
 const palabras = document.getElementById("palabras");
 const letras = document.getElementById("letra");
 const boton = document.getElementById("boton");
+const mascara = "-";
 let fallos = document.getElementById("fallos");
 let vidas = document.getElementById("vidas");
 let oculta = document.getElementById("oculta");
@@ -14,8 +15,6 @@ let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
-let letra = isLetter(letras.value);
-const mascara = "-";
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
 }
@@ -44,7 +43,7 @@ function normalizar(p) {
     return palabranormal;
 }
 function isLetter(str) {
-    return str.length === 1 && str.match(/[a-z]/i);
+    return str.length === 1 && /[a-z]/i.test(str);
 }
 boton.addEventListener("click", function () {
     randomIndex = Math.floor(Math.random() * todas.length);
@@ -66,7 +65,7 @@ boton.addEventListener("click", function () {
 letras.addEventListener("keyup", function (event) {
     let any = false;
     if (event.key === "Enter" && letras.value != "") {
-        if (letra === true) {
+        if (isLetter(letras.value) === true) {
             for (let i = 0; i < randomElement.length; i++) {
                 if (letras.value.toLowerCase() == palabra[i]) {
                     any = true;
@@ -91,7 +90,8 @@ letras.addEventListener("keyup", function (event) {
             letras.value = "";
         }
         else {
-            alert(letra);
+            letras.value = "";
+            alert("Te reviento, Rodrigo");
         }
     }
 });

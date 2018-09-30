@@ -2,6 +2,7 @@ const victoria = document.getElementById("victoria") as HTMLLabelElement;
 const palabras = document.getElementById("palabras") as HTMLInputElement;
 const letras = document.getElementById("letra") as HTMLInputElement;
 const boton = document.getElementById("boton") as HTMLButtonElement;
+const mascara = "-";
 let fallos = document.getElementById("fallos") as HTMLLabelElement;
 let vidas = document.getElementById("vidas") as HTMLLabelElement;
 let oculta = document.getElementById("oculta") as HTMLLabelElement;
@@ -13,8 +14,6 @@ let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
-let letra = isLetter(letras.value);
-const mascara = "-";
 
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
@@ -22,13 +21,10 @@ for (let i = 0; i < randomElement.length; i++) {
 let arrayoculto = oculta.innerText.split("");
 let palabrafinal = arrayoculto;
 
-
-
-
 function normalizar(p: string) {
     let palabranormal = [];
     palabranormal = p.split("");
-    for (let i: number = 0; i < p.length; i++) {
+    for (let i = 0; i < p.length; i++) {
         if (p[i] == "á") {
             palabranormal[i] = "a";
         }
@@ -48,11 +44,11 @@ function normalizar(p: string) {
     return palabranormal;
 }
 
-function  isLetter(str:string) {
-    return str.length === 1 && str.match(/[a-z]/i);
- }
+function isLetter(str: string) {
+    return str.length === 1 && /[a-z]/i.test(str);
+}
 
- boton.addEventListener("click", function () {
+boton.addEventListener("click", function () {
     randomIndex = Math.floor(Math.random() * todas.length);
     randomElement = todas[randomIndex];
     vidas.innerHTML = 5 + "";
@@ -74,7 +70,7 @@ function  isLetter(str:string) {
 letras.addEventListener("keyup", function (event) {
     let any: boolean = false;
     if (event.key === "Enter" && letras.value != "") {
-        if (letra === true) {
+        if (isLetter(letras.value) === true) {
             for (let i = 0; i < randomElement.length; i++) {
                 if (letras.value.toLowerCase() == palabra[i]) {
                     any = true;
@@ -98,7 +94,8 @@ letras.addEventListener("keyup", function (event) {
             }
             letras.value = "";
         } else {
-            alert(letra)
+            letras.value = "";
+            alert("Te reviento, Rodrigo");
         }
     }
 });
