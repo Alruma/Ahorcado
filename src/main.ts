@@ -21,7 +21,7 @@ let letranormal = normalizaracentos(letras.value);
 
 modonoche.addEventListener("click", function() {
     noche.innerText = "A chuparla";
-    document.body.style.backgroundColor = "hotpink";
+    document.body.style.backgroundColor = "#FFFF00";
 })
 
 
