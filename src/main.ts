@@ -1,8 +1,8 @@
+const mascara = "-";
 const victoria = document.getElementById("victoria") as HTMLLabelElement;
 const palabras = document.getElementById("palabras") as HTMLInputElement;
 const letras = document.getElementById("letra") as HTMLInputElement;
 const boton = document.getElementById("boton") as HTMLButtonElement;
-const mascara = "-";
 let fallos = document.getElementById("fallos") as HTMLLabelElement;
 let vidas = document.getElementById("vidas") as HTMLLabelElement;
 let oculta = document.getElementById("oculta") as HTMLLabelElement;
@@ -122,4 +122,5 @@ function normalizaracentos(p:string){
     }
     return p;
 }
+
 

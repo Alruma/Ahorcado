@@ -1,9 +1,9 @@
 "use strict";
+const mascara = "-";
 const victoria = document.getElementById("victoria");
 const palabras = document.getElementById("palabras");
 const letras = document.getElementById("letra");
 const boton = document.getElementById("boton");
-const mascara = "-";
 let fallos = document.getElementById("fallos");
 let vidas = document.getElementById("vidas");
 let oculta = document.getElementById("oculta");
