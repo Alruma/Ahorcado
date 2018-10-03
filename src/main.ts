@@ -1,4 +1,6 @@
 const mascara = "-";
+const noche = document.getElementById("noche") as HTMLLabelElement;
+const modonoche = document.getElementById("chuparla") as HTMLButtonElement;
 const victoria = document.getElementById("victoria") as HTMLLabelElement;
 const palabras = document.getElementById("palabras") as HTMLInputElement;
 const letras = document.getElementById("letra") as HTMLInputElement;
@@ -16,6 +18,11 @@ let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
+
+modonoche.addEventListener("click", function() {
+    noche.innerText = "A chuparla";
+    document.body.style.backgroundColor = "hotpink";
+})
 
 
 for (let i = 0; i < randomElement.length; i++) {
@@ -123,4 +130,4 @@ function normalizaracentos(p:string){
     return p;
 }
 
-
+console.log(randomElement);
