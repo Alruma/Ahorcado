@@ -129,5 +129,3 @@ function normalizaracentos(p:string){
     }
     return p;
 }
-
-console.log(randomElement);
