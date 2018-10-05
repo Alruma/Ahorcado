@@ -20,6 +20,7 @@ let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 modonoche.addEventListener("click", function () {
+    vidas.innerHTML = 10 + "";
     lvidas = 10;
 });
 for (let i = 0; i < randomElement.length; i++) {

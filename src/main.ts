@@ -20,7 +20,7 @@ let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 
 modonoche.addEventListener("click", function() {
-
+    vidas.innerHTML = 10 + "";
     lvidas = 10;
 })
 
