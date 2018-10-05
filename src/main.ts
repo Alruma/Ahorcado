@@ -20,8 +20,7 @@ let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 
 modonoche.addEventListener("click", function() {
-    noche.innerText = "A chuparla";
-    document.body.style.backgroundColor = "#00FF00";
+    lvidas = 10;
 })
 
 
