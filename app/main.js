@@ -1,7 +1,7 @@
 "use strict";
 const mascara = "-";
 const noche = document.getElementById("noche");
-const modonoche = document.getElementById("chuparla");
+const marta = document.getElementById("chuparla");
 const victoria = document.getElementById("victoria");
 const palabras = document.getElementById("palabras");
 const letras = document.getElementById("letra");
@@ -19,9 +19,10 @@ let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
-modonoche.addEventListener("click", function () {
-    vidas.innerHTML = 10 + "";
-    lvidas = 10;
+marta.addEventListener("click", function () {
+    vidas.innerHTML = lvidas + "";
+    lvidas += 5;
+    this.disabled;
 });
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
