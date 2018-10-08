@@ -20,9 +20,9 @@ let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 marta.addEventListener("click", function () {
-    vidas.innerHTML = lvidas + "";
     lvidas += 5;
-    this.disabled;
+    vidas.innerHTML = lvidas + "";
+    marta.disabled = true;
 });
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
@@ -70,6 +70,7 @@ boton.addEventListener("click", function () {
     letras.disabled = false;
     letras.value = "";
     palabra = normalizar(randomElement);
+    marta.disabled = false;
 });
 letras.addEventListener("keyup", function (event) {
     let any = false;

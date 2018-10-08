@@ -19,10 +19,12 @@ let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 
+
+
 marta.addEventListener("click", function() {
-    vidas.innerHTML = lvidas + "";
     lvidas +=5 ;
-    this.disabled
+    vidas.innerHTML = lvidas + "";
+    marta.disabled = true;
 })
 
 
@@ -75,6 +77,7 @@ boton.addEventListener("click", function () {
     letras.disabled = false;
     letras.value = "";
     palabra = normalizar(randomElement);
+    marta.disabled = false;
 })
 
 
