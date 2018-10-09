@@ -71,6 +71,7 @@ boton.addEventListener("click", function () {
     marta.disabled = false;
     letras.value = "";
     palabra = normalizar(randomElement);
+    marta.disabled = false;
 });
 letras.addEventListener("keyup", function (event) {
     let any = false;
