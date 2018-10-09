@@ -1,6 +1,6 @@
 const mascara = "-";
 const noche = document.getElementById("noche") as HTMLLabelElement;
-const modonoche = document.getElementById("chuparla") as HTMLButtonElement;
+const marta = document.getElementById("chuparla") as HTMLButtonElement;
 const victoria = document.getElementById("victoria") as HTMLLabelElement;
 const palabras = document.getElementById("palabras") as HTMLInputElement;
 const letras = document.getElementById("letra") as HTMLInputElement;
@@ -19,9 +19,10 @@ let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 
-modonoche.addEventListener("click", function() {
+marta.addEventListener("click", function() {
     vidas.innerHTML = 10 + "";
     lvidas = 10;
+    marta.disabled = true;
 })
 
 
@@ -72,6 +73,7 @@ boton.addEventListener("click", function () {
     palabrafinal = arrayoculto;
     victoria.innerHTML = "";
     letras.disabled = false;
+    marta.disabled = false;
     letras.value = "";
     palabra = normalizar(randomElement);
 })
