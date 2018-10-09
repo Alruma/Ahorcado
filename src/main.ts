@@ -20,8 +20,8 @@ let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
 
 marta.addEventListener("click", function() {
-    vidas.innerHTML = 10 + "";
-    lvidas = 10;
+    vidas.innerHTML = lvidas + 5 + "" ;
+    lvidas += 5;
     marta.disabled = true;
 })
 
@@ -95,7 +95,7 @@ letras.addEventListener("keyup", function (event) {
                 lvidas -= 1;
                 vidas.innerText = lvidas + "";
                 if (lvidas <= 0) {
-                    victoria.innerHTML = "Unlucky busta, ha muerto.";
+                    victoria.innerHTML = "Unlucky busta, el monigote ha muerto.";
                     letras.disabled = true;
                     oculta.innerText = randomElement;
                 }
