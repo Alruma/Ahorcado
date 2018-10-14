@@ -92,17 +92,17 @@ boton.addEventListener("click", function () {
     vivo();
 });
 letras.addEventListener("keyup", function (event) {
-    let any = false;
+    let Annie = false;
     if (event.key === "Enter" && letras.value != "") {
         if (isLetter(normalizaracentos(letras.value)) === true) {
             for (let i = 0; i < randomElement.length; i++) {
                 if (normalizaracentos(letras.value.toLowerCase()) == palabra[i]) {
-                    any = true;
+                    Annie = true;
                     palabrafinal[i] = randomElement[i];
                     oculta.innerText = palabrafinal.join("");
                 }
             }
-            if (any == false) {
+            if (Annie == false) {
                 fallos.innerHTML = fallos.innerHTML + fail + letras.value + ", ";
                 setvida(lvidas - 1);
                 if (lvidas <= 0) {
@@ -115,8 +115,7 @@ letras.addEventListener("keyup", function (event) {
             letras.value = "";
         }
         else {
-            letras.value = "";
-            alert("Te reviento, Rodrigo");
+            reventarRodrigo();
         }
     }
 });
@@ -137,5 +136,9 @@ function normalizaracentos(p) {
         p = "u";
     }
     return p;
+}
+function reventarRodrigo() {
+    letras.value = "";
+    alert("Te reviento, Rodrigo");
 }
 //# sourceMappingURL=main.js.map
