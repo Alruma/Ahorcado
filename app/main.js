@@ -19,11 +19,45 @@ let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
-marta.addEventListener("click", function () {
-    vidas.innerHTML = lvidas + 5 + "";
-    lvidas += 5;
+function win() {
+    victoria.innerHTML = "Has ganado y el notas no ha muerto, que no es poco. Pulsa Empezar para otra partida.";
+    letras.disabled = true;
     marta.disabled = true;
+}
+function vivoconayuda() {
+    setvida(lvidas + 5);
+    marta.disabled = true;
+}
+function vivo() {
+    randomIndex = Math.floor(Math.random() * todas.length);
+    randomElement = todas[randomIndex];
+    setvida(5);
+    fallos.innerHTML = "";
+    oculta.innerText = "";
+    for (let i = 0; i < randomElement.length; i++) {
+        oculta.innerText = oculta.innerText + mascara;
+    }
+    arrayoculto = oculta.innerText.split("");
+    palabrafinal = arrayoculto;
+    victoria.innerHTML = "";
+    letras.disabled = false;
+    marta.disabled = false;
+    letras.value = "";
+    palabra = normalizar(randomElement);
+}
+function muerto() {
+    marta.disabled = true;
+    victoria.innerHTML = "Unlucky busta, el monigote ha muerto.";
+    letras.disabled = true;
+    oculta.innerText = randomElement;
+}
+marta.addEventListener("click", function () {
+    vivoconayuda();
 });
+function setvida(n) {
+    lvidas = n;
+    vidas.innerText = lvidas + "";
+}
 for (let i = 0; i < randomElement.length; i++) {
     oculta.innerText = oculta.innerText + mascara;
 }
@@ -55,22 +89,7 @@ function isLetter(str) {
     return str.length === 1 && /[a-zñ]/i.test(str);
 }
 boton.addEventListener("click", function () {
-    randomIndex = Math.floor(Math.random() * todas.length);
-    randomElement = todas[randomIndex];
-    vidas.innerHTML = 5 + "";
-    fallos.innerHTML = "";
-    lvidas = 5;
-    oculta.innerText = "";
-    for (let i = 0; i < randomElement.length; i++) {
-        oculta.innerText = oculta.innerText + mascara;
-    }
-    arrayoculto = oculta.innerText.split("");
-    palabrafinal = arrayoculto;
-    victoria.innerHTML = "";
-    letras.disabled = false;
-    marta.disabled = false;
-    letras.value = "";
-    palabra = normalizar(randomElement);
+    vivo();
 });
 letras.addEventListener("keyup", function (event) {
     let any = false;
@@ -85,18 +104,13 @@ letras.addEventListener("keyup", function (event) {
             }
             if (any == false) {
                 fallos.innerHTML = fallos.innerHTML + fail + letras.value + ", ";
-                lvidas -= 1;
-                vidas.innerText = lvidas + "";
+                setvida(lvidas - 1);
                 if (lvidas <= 0) {
-                    marta.disabled = true;
-                    victoria.innerHTML = "Unlucky busta, el monigote ha muerto.";
-                    letras.disabled = true;
-                    oculta.innerText = randomElement;
+                    muerto();
                 }
             }
             if (palabrafinal.join("") == randomElement) {
-                victoria.innerHTML = "Has ganado y el notas no ha muerto, que no es poco. Pulsa Empezar para otra partida.";
-                letras.disabled = true;
+                win();
             }
             letras.value = "";
         }
