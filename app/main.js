@@ -19,11 +19,6 @@ let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
 let letranormal = normalizaracentos(letras.value);
-let muerto = false;
-if (muerto === true) {
-    marta.disabled = true;
-    letras.disabled = true;
-}
 marta.addEventListener("click", function () {
     vidas.innerHTML = lvidas + 5 + "";
     lvidas += 5;
@@ -93,6 +88,7 @@ letras.addEventListener("keyup", function (event) {
                 lvidas -= 1;
                 vidas.innerText = lvidas + "";
                 if (lvidas <= 0) {
+                    marta.disabled = true;
                     victoria.innerHTML = "Unlucky busta, el monigote ha muerto.";
                     letras.disabled = true;
                     oculta.innerText = randomElement;
