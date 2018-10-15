@@ -92,17 +92,17 @@ boton.addEventListener("click", function () {
     vivo();
 });
 letras.addEventListener("keyup", function (event) {
-    let Annie = false;
+    let acierto = false;
     if (event.key === "Enter" && letras.value != "") {
         if (isLetter(normalizaracentos(letras.value)) === true) {
             for (let i = 0; i < randomElement.length; i++) {
                 if (normalizaracentos(letras.value.toLowerCase()) == palabra[i]) {
-                    Annie = true;
+                    acierto = true;
                     palabrafinal[i] = randomElement[i];
                     oculta.innerText = palabrafinal.join("");
                 }
             }
-            if (Annie == false) {
+            if (acierto == false) {
                 fallos.innerHTML = fallos.innerHTML + fail + letras.value + ", ";
                 setvida(lvidas - 1);
                 if (lvidas <= 0) {
