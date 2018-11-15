@@ -17,21 +17,41 @@ let fail = fallos.innerText;
 let po = oculta.innerHTML;
 let newrandomElement = randomElement;
 let palabra = normalizar(randomElement);
+
+const normalizaracentos = (p:string) => {
+    if (p.toLowerCase() == "á" || p.toLowerCase() == "à" || p.toLowerCase() == "â" || p.toLowerCase() == "ä" ) {
+        p = "a";
+    }
+    if (p.toLowerCase() == "é" || p.toLowerCase() == "è" || p.toLowerCase() == "ê" || p.toLowerCase() == "ë" ) {
+        p = "e";
+    }
+    if (p.toLowerCase() == "í"|| p.toLowerCase() == "ì" || p.toLowerCase() == "î" || p.toLowerCase() == "ï" ) {
+        p = "i";
+    }
+    if (p.toLowerCase() == "ó"|| p.toLowerCase() == "ò" || p.toLowerCase() == "ô" || p.toLowerCase() == "ö" ) {
+        p = "o";
+    }
+    if (p.toLowerCase() == "ú"|| p.toLowerCase() == "ù" || p.toLowerCase() == "û" || p.toLowerCase() == "ü" ) {
+        p = "u";
+    }
+    return p;
+}
+
 let letranormal = normalizaracentos(letras.value);
 
-function win(){
+const win = () => {
     victoria.innerHTML = "Has ganado y el notas no ha muerto, que no es poco. Pulsa Empezar para otra partida.";
     letras.disabled = true;
     marta.disabled = true;
 }
 
 
-function vivoconayuda(){
+const vivoconayuda = () =>{
     setvida(lvidas + 5);
     marta.disabled = true;
 }
 
-function vivo(){
+const vivo = () => {
     randomIndex = Math.floor(Math.random() * todas.length);
     randomElement = todas[randomIndex];
     setvida(5);
@@ -49,7 +69,7 @@ function vivo(){
     palabra = normalizar(randomElement);
 }
 
-function muerto(){
+const muerto = () => {
     marta.disabled = true;
     victoria.innerHTML = "Unlucky busta, el monigote ha muerto.";
     letras.disabled = true;
@@ -95,13 +115,13 @@ function normalizar(p: string) {
     return palabranormal;
 }
 
-function isLetter(str: string) {
+const isLetter = (str: string) => {
     return str.length === 1 && /[a-zñ]/i.test(str);
 }
 
 boton.addEventListener("click", function () {
     vivo();
-})
+});
 
 
 letras.addEventListener("keyup", function (event) {
@@ -131,26 +151,6 @@ letras.addEventListener("keyup", function (event) {
         }
     }
 });
-
-
-function normalizaracentos(p:string){
-    if (p.toLowerCase() == "á" || p.toLowerCase() == "à" || p.toLowerCase() == "â" || p.toLowerCase() == "ä" ) {
-        p = "a";
-    }
-    if (p.toLowerCase() == "é" || p.toLowerCase() == "è" || p.toLowerCase() == "ê" || p.toLowerCase() == "ë" ) {
-        p = "e";
-    }
-    if (p.toLowerCase() == "í"|| p.toLowerCase() == "ì" || p.toLowerCase() == "î" || p.toLowerCase() == "ï" ) {
-        p = "i";
-    }
-    if (p.toLowerCase() == "ó"|| p.toLowerCase() == "ò" || p.toLowerCase() == "ô" || p.toLowerCase() == "ö" ) {
-        p = "o";
-    }
-    if (p.toLowerCase() == "ú"|| p.toLowerCase() == "ù" || p.toLowerCase() == "û" || p.toLowerCase() == "ü" ) {
-        p = "u";
-    }
-    return p;
-}
 
 function reventarRodrigo(){
     letras.value = "";
